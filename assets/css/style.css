@@ -33,10 +33,15 @@ body {
   background-color: white;
 }
 
+/*=========================*/
+/*=========Inputs==========*/
+/*=========================*/
+
 .input-box {
   display: flex;
   flex-direction: column;
   height: 400px;
+  margin-bottom: 20px;
 }
 
 .bill-box {
@@ -54,6 +59,7 @@ body {
 
 .bill, .people {
   font-size: 24px;
+  font-weight: 600;
   width: 90%;
   height: 40px;
   line-height: 40px;
@@ -61,9 +67,10 @@ body {
   align-self: center;
   text-align: right;
   padding-right: 5px;
+  color: hsl(183, 100%, 15%);
   background-image: url(../img/icon-dollar.svg);
   background-repeat: no-repeat;
-  background-position: 5px center;
+  background-position: 15px center;
   background-color: hsl(189, 41%, 97%);
   border-radius: 8px;
 }
@@ -87,6 +94,7 @@ body {
 
 .amount-selector, .custom {
   font-size: 24px;
+  font-weight: 550;
   margin-bottom: 10px;
   margin-left: 10px;
   width: calc(50% - 20px);
@@ -96,7 +104,18 @@ body {
   text-align: center;
   background-color: hsl(183, 100%, 15%);
   border-radius: 6px;
+  transition: all 0.25s linear;
 }
+
+.amount-selector {
+  cursor: pointer;
+}
+
+.amount-selector:hover, .light-cyan-bg {
+  background-color:hsl(172, 67%, 45%)
+}
+
+
 
 .custom input[type=text] {
   width: 100%;
@@ -104,8 +123,12 @@ body {
   text-align: right;
   padding-right: 8px;
   border-radius: 6px;
+  background-color: hsl(189, 41%, 97%);
 }
 
+input[type=text]:focus {
+  border: 1px solid hsl(172, 67%, 45%);
+}
 
 .people-box {
   display: flex;
@@ -118,9 +141,65 @@ body {
   background-image: url(../img/icon-person.svg);
 }
 
+
+/*=========================*/
+/*=========Output==========*/
+/*=========================*/
+
 .output-box {
-  height: 300px;
+  height: 250px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   background-color: hsl(183, 100%, 15%);
+  border-radius: 15px;
+}
+
+.tip-each, .total-each {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+}
+
+.text {
+  margin-left: 30px;
+}
+
+.main-text {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.sub-text {
+  font-weight: 300;
+  color: hsl(185, 41%, 84%);
+}
+
+.amount {
+  margin-right: 30px;
+  font-size: 28px;
+  color: hsl(172, 67%, 45%);
+}
+
+.reset button, .reset {
+  font-size: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+  width: 85%;
+  height: 40px;
+  align-self: center;
+  text-align: center;
+  background-color: hsl(172, 67%, 45%);
+  border-radius: 6px;
+}
+
+.reset button {
+  width: 100%;
+  transition: all 0.25s linear;
+}
+
+.reset button:hover {
+  background-color: hsl(172, 50%, 43%);
 }
