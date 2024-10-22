@@ -1,9 +1,126 @@
 @charset "utf-8";
 @import url(./utils.css);
-@import url(./root.css);
 
-html {
-  font-family: 'Nunito Sans', 'Fira Sans', Arial, sans-serif;
+/*=========================*/
+/*=======Main Styles=======*/
+/*=========================*/
+
+body {
+  font-family: "Space Mono", monospace;
+  background-color: hsl(185, 41%, 84%);
+}
+
+.wrapper {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  margin-top: 30px;
 }
 
 
+.main-box {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-radius: 12px 12px 0 0;
+  height: calc(135svh - 150px);
+  background-color: white;
+}
+
+.input-box {
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+}
+
+.bill-box {
+  height: calc(35% - 20px);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.bill-title, .tip-title {
+  font-size: 16px;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.bill, .people {
+  font-size: 24px;
+  width: 90%;
+  height: 40px;
+  line-height: 40px;
+  margin-top: 5px;
+  align-self: center;
+  text-align: right;
+  padding-right: 5px;
+  background-image: url(../img/icon-dollar.svg);
+  background-repeat: no-repeat;
+  background-position: 5px center;
+  background-color: hsl(189, 41%, 97%);
+  border-radius: 8px;
+}
+
+.tip-options {
+  height: calc(75% - 40px);
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.selectors {
+  align-self: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tip-title {
+  margin-bottom: 10px;
+}
+
+.amount-selector, .custom {
+  font-size: 24px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  width: calc(50% - 20px);
+  height: 45px;
+  line-height: 45px;
+  color: #fff;
+  text-align: center;
+  background-color: hsl(183, 100%, 15%);
+  border-radius: 6px;
+}
+
+.custom input[type=text] {
+  width: 100%;
+  height: 100%;
+  text-align: right;
+  padding-right: 8px;
+  border-radius: 6px;
+}
+
+
+.people-box {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+  height: calc(25% - 20px);
+}
+
+.people {
+  background-image: url(../img/icon-person.svg);
+}
+
+.output-box {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(183, 100%, 15%);
+}
