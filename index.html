@@ -31,12 +31,12 @@
             <div class="tip-options">
               <p class="tip-title">Select Tip %</p>
               <div class="selectors">
-                <div class="amount-selector"><p>5%</p></div>
-                <div class="amount-selector"><p>10%</p></div>
-                <div class="amount-selector"><p>15%</p></div>
-                <div class="amount-selector"><p>25%</p></div>
-                <div class="amount-selector"><p>50%</p></div>
-                <div class="custom"><input type="text" placeholder="Custom"></div>
+                <button id="five" class="amount-selector" value="5">5%</button>
+                <button id="ten" class="amount-selector" value="10">10%</button>
+                <button id="fifteen" class="amount-selector" value="15">15%</button>
+                <button id="twenty-five" class="amount-selector" value="25">25%</button>
+                <button id="fifty" class="amount-selector" value="50">50%</button>
+                <div class="custom"><input id="custom-amount" type="text" placeholder="Custom"></div>
               </div>
             </div>
         
@@ -53,7 +53,7 @@
                 <p class="sub-text">/ person</p>
               </div>
               <div class="total">
-                <h2 class="amount">$0.00</h2>
+                <h2 class="tip-amount">$0.00</h2>
               </div>
             </div>
             <div class="total-each">
@@ -62,11 +62,11 @@
                 <p class="sub-text">/ person</p>
               </div>
               <div class="total">
-                <h2 class="amount">$0.00</h2>
+                <h2 class="total-amount">$0.00</h2>
               </div>
             </div>
             <div class="reset">
-              <button>Reset</button>
+              <button class="reset-button">Reset</button>
             </div>
           </div>
         
