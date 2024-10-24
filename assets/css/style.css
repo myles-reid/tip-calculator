@@ -92,7 +92,7 @@ body {
   margin-bottom: 10px;
 }
 
-.amount-selector, .custom, .percentage {
+.amount-selector, .custom{
   font-size: 24px;
   font-weight: 550;
   margin-bottom: 10px;
@@ -108,28 +108,26 @@ body {
 }
 
 
-.amount-selector {
-  cursor: pointer;
-}
-
-.amount-selector:hover {
+button.amount-selector:hover {
   background-color: hsl(172, 67%, 60%);
   color: hsl(183, 100%, 15%);
 }
 
-.amount-selector:focus {
+button.amount-selector:focus {
   background-color:hsl(172, 67%, 45%);
   color: hsl(183, 100%, 15%);
 }
 
 
 
-.custom input[type=text] {
+.amount-selector[type=text] {
   width: 100%;
   height: 100%;
+  margin-left: 0;
   text-align: right;
   padding-right: 8px;
-  border-radius: 6px;
+  border-radius: 5px;
+  color: hsl(183, 100%, 15%);
   background-color: hsl(189, 41%, 97%);
 }
 
@@ -171,6 +169,10 @@ input[type=text]:focus {
 
 .text {
   margin-left: 30px;
+}
+
+.total {
+  margin-right: 30px;
 }
 
 .main-text {

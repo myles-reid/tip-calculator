@@ -31,6 +31,7 @@ const fifteen = select('#fifteen');
 const twentyFive = select('#twenty-five');
 const fifty = select('#fifty');
 const custom = select('#custom-amount');
+const amtBtn = document.querySelectorAll('.amount-selector');
 const people = select('.people');
 const tipEach = select('.tip-amount');
 const totalEach = select('.total-amount');
@@ -58,7 +59,7 @@ function getTipTotalEach() {
 function getBillTotalEach() {
   if (!isNaN(billTotal) && !isNaN(numPeople)) {
     total = tipTotal + billTotal
-    finalTotalEach = (total / numPeople).toFixed(2);~
+    finalTotalEach = (total / numPeople).toFixed(2);
     return;
   } else {
     totalEach.innerText = 'Err';
@@ -66,8 +67,27 @@ function getBillTotalEach() {
   }
 }
 
-function getPercentage(selector) {
-  return percentage = selector.value.trim() / 100;
+function getPercentage(input) {
+  switch (input.value){
+    case '5': 
+      percentage = 0.05;
+      break;
+    case '10':
+      percentage = 0.1;
+      break;
+    case '15':
+      percentage = 0.15;
+      break;
+    case '25':
+      percentage = 0.25;
+      break;
+    case '50':
+      percentage = 0.5;
+      break;
+    default:
+      percentage = parseInt(custom.value.trim()) / 100;
+  }
+  return percentage;
 }
 
 function getPeople() {
@@ -83,69 +103,40 @@ function printTotals(tip, total) {
   tipEach.innerText = `$${tip}`;
 }
 
+function pageReset() {
+  amtBtn.forEach((btn) => {
+    btn.blur();
+  });
+  custom.value = '';
+  people.value = '';
+  bill.value = '';
+  totalEach.innerText = '$0.00'
+  tipEach.innerText = '$0.00'
+};
 
-
-listen('focus', five, () => {
-  getPercentage(five);
-  getBill();
-  getPeople();
-  getTipTotalEach();
-  getBillTotalEach();
-  printTotals(tipTotalEach, finalTotalEach);
+amtBtn.forEach((btn) => {
+  listen('focus', btn, () => {
+    if (btn === custom){
+      listen('input', page, () =>{
+        getPercentage(custom.value);
+        getBill();
+        getPeople();
+        getTipTotalEach();
+        getBillTotalEach();
+        printTotals(tipTotalEach, finalTotalEach); 
+      });     
+    };
+    getPercentage(btn);
+    getBill();
+    getPeople();
+    getTipTotalEach();
+    getBillTotalEach();
+    printTotals(tipTotalEach, finalTotalEach);
+  });
 });
 
-listen('focus', ten, () => {
-  getPercentage(ten);
-  getBill();
-  getPeople();
-  getTipTotalEach();
-  getBillTotalEach();
-  printTotals(tipTotalEach, finalTotalEach);
+listen('click', resetButton, () => {
+  pageReset();
+  console.log('working');
 });
-
-listen('focus', fifteen, () => {
-  getPercentage(fifteen);
-  getBill();
-  getPeople();
-  getTipTotalEach();
-  getBillTotalEach();
-  printTotals(tipTotalEach, finalTotalEach)
-});
-
-listen('focus', twentyFive, () => {
-  getPercentage(twentyFive);
-  getBill();
-  getPeople();
-  getTipTotalEach();
-  getBillTotalEach();
-  printTotals(tipTotalEach, finalTotalEach)
-});
-
-listen('focus', fifty, () => {
-  getPercentage(fifty);
-  getBill();
-  getPeople();
-  getTipTotalEach();
-  getBillTotalEach();
-  printTotals(tipTotalEach, finalTotalEach)
-});
-
-listen('input', page, () => {
-  getPercentage(custom);
-  getBill();
-  getPeople();
-  getTipTotalEach();
-  getBillTotalEach();
-  printTotals(tipTotalEach, finalTotalEach)
-  console.log(tipTotalEach);
-});
-
-// let billTotal = bill.value.toFixed(2);
-// let numPeople = people.value.toFixed(0);
-// let tipTotal = (billTotal * percentage).toFixed(2);
-// let tipTotalEach = (tipTotal / numPeople).toFixed(2);
-// let total = (billTotal + tipTotal).toFixed(2);
-// let finalTotalEach = (total / numPeople).toFixed(2);
-
-
 
